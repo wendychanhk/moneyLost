@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="viewport" content="width=1536" />
+  <title>Money Lost</title>
+  <!--jQuery and Javascript-->
+<style>
+@font-face {
+  font-family: "ProximaNovaExtrabld";
+  src: url(ProximaNovaExtrabld.otf);
+}
+* {
+  font-family: "ProximaNovaExtrabld";
+}
+
+@font-face {
+  font-family: "ProximaNovaLight";
+  src: url(ProximaNovaLight.otf);
+}
+
+.light-text {
+  font-family: "ProximaNovaLight";
+}
+
+body {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+#money {
+    color: #E33532;
+    font-size: 170px;
+    text-align: center;
+      padding-top: 40px;
+        padding-bottom: 40px;
+}
+.app-wrapper {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+}
+
+</style>
+</head>
+<body>
+ <!-- <div style="margin-left: auto; margin-right: auto; width:1530px"><img src="first.png"></div> -->
+ <div class="app-wrapper">
+  <div style="text-align: center; color: black; font-size: 350px; ">TODAY</div>
+  <div class="light-text" style="text-align: center; color: black; font-size: 130px;">businesses have lost</div>
+  <div style="text-align: center;" id="money"></div>
+  <div class="light-text" style="padding-bottom: 40px; text-align: center; color: black; font-size: 130px;">making payments to</div>
+  <div style="text-align: center; color: black; font-size: 350px; color:#E33532">CHINA</div>
+  <div style="width: 1200px; margin-left: auto; margin-right: auto;"> 
+  <img src="emoji.svg" style="float: left;width:480px;margin-left:50px;margin-right:50px;">
+
+  <div class="light-text" style="text-align: center;color: black;font-size: 56px;border: 3px black solid;height: 387px;width: 500px;float: right;padding: 21px;padding-top: 63px;margin-right:50px;">
+      Don't be part of <br>this statistic, <br>speak to us at 
+      <div style="padding:50px;">
+        <img src="logo.png" style="width:343px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div style="margin-left: auto; margin-right: auto; width:1530px"><img  src="second.png"></div> -->
+</body>
+
+<script>
+
+var dt = new Date();
+var utc = dt.getTime() + (dt.getTimezoneOffset() * 60000);
+var nd = new Date(utc + (3600000*8));
+var secs = nd.getSeconds() + (60 * nd.getMinutes()) + (60 * 60 * nd.getHours());
+var lost = secs*4056;
+function formatNumber (num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+}
+window.setInterval(
+ function () {
+   lost = lost + 4056;
+   document.getElementById("money").innerHTML = "$" + formatNumber(lost);
+
+ }, 1000);
+
+</script></html>
